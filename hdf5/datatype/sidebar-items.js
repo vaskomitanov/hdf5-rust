@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ByteOrder",""],["Conversion",""]],"struct":[["Datatype","Represents the HDF5 datatype object."]]});

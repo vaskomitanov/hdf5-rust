@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Chunk",""],["VirtualView",""]],"struct":[["ChunkCache",""],["Dataset","Represents the HDF5 dataset object."],["DatasetAccess","Dataset access properties."],["DatasetAccessBuilder","Builder used to create dataset access property list."],["DatasetBuilder",""]]});

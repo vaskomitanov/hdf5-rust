@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["PropertyListClass","Property list class."]],"mod":[["dataset_access",""],["file_access",""],["file_create",""]],"struct":[["DatasetAccess","Dataset access properties."],["FileAccess","File access properties."],["FileCreate","File creation properties."],["PropertyList","Represents the HDF5 property list."]]});
