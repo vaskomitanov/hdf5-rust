@@ -63,28 +63,7 @@ macro_rules! check_and_emit {
 
 #[doc(hidden)]
 pub fn emit_cfg_flags() {
-    check_and_emit!(hdf5_1_8_5);
-    check_and_emit!(hdf5_1_8_6);
-    check_and_emit!(hdf5_1_8_7);
-    check_and_emit!(hdf5_1_8_8);
-    check_and_emit!(hdf5_1_8_9);
-    check_and_emit!(hdf5_1_8_10);
-    check_and_emit!(hdf5_1_8_11);
-    check_and_emit!(hdf5_1_8_12);
-    check_and_emit!(hdf5_1_8_13);
-    check_and_emit!(hdf5_1_8_14);
-    check_and_emit!(hdf5_1_8_15);
-    check_and_emit!(hdf5_1_8_16);
-    check_and_emit!(hdf5_1_8_17);
-    check_and_emit!(hdf5_1_8_18);
-    check_and_emit!(hdf5_1_8_19);
-    check_and_emit!(hdf5_1_8_20);
-    check_and_emit!(hdf5_1_8_21);
-    check_and_emit!(hdf5_1_10_0);
-    check_and_emit!(hdf5_1_10_1);
-    check_and_emit!(hdf5_1_10_2);
-    check_and_emit!(hdf5_1_10_3);
-    check_and_emit!(hdf5_1_10_4);
+    check_and_emit!(hdf5_1_10_5);
     check_and_emit!(h5_have_direct);
     check_and_emit!(h5_have_parallel);
     check_and_emit!(h5_have_threadsafe);
@@ -92,13 +71,21 @@ pub fn emit_cfg_flags() {
 
 #[cfg(test)]
 mod tests {
-    use super::h5::H5open;
     use super::h5p::H5P_CLS_ROOT;
+    use crate::h5::{H5open, H5get_libversion, H5close};
+    use std::os::raw::c_uint;
 
     #[test]
     pub fn test_smoke() {
         unsafe {
             H5open();
+            let mut majnum:c_uint = 0;
+            let mut minnum:c_uint = 0;
+            let mut relnum:c_uint = 0;
+            let result = H5get_libversion(&mut majnum, &mut minnum, &mut relnum);
+            println!("Call to: H5get_libversion returned: {}", result);
+            println!("H5 library version: {}.{}.{}", majnum, minnum, relnum);
+            H5close();
             assert!(*H5P_CLS_ROOT > 0);
         }
     }

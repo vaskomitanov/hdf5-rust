@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.0
+
+### Changed
+- Removed dynamic deps, added static only linking to hdf5 and zip libs
+
+
 ## 0.6.1
 
 ### Added
